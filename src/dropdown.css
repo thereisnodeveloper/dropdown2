@@ -1,10 +1,8 @@
 .drop-down{
     background-color: red;
-}
-
-.drop-down.hidden{
     display: none;
 }
+
 
 .drop-down.shown{
     display: block;
