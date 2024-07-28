@@ -1,6 +1,6 @@
-import DropDown from './dropdown';
+import Dropdown from './dropdown';
 
 const testArray = document.querySelectorAll('li');
 
-const testDropDown = new DropDown(testArray, document.querySelector('button'));
+const testDropDown = new Dropdown(testArray, document.querySelector('button'));
 console.log(testDropDown);
