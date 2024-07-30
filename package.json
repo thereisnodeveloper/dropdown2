@@ -1,7 +1,7 @@
 {
-  "name": "dropdown2_clean",
+  "name": "dropdownize",
   "version": "1.0.0",
-  "description": "",
+  "description": "turns array into dropdown menu, linked to a button",
   "main": "index.js",
   "mode": "development",
   "scripts": {
