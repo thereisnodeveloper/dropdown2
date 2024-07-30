@@ -1,9 +1,0 @@
-.drop-down{
-    background-color: red;
-    display: none;
-}
-
-
-.drop-down.shown{
-    display: block;
-}

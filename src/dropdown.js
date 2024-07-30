@@ -37,13 +37,15 @@ class DropDown {
   //  adds CSS style for 'dropdown-item' class
   addDropdownStyle() {
     const styles = `
-  .drop-down{
+  .dropdown-item{
     background-color: red;
     display: none;
     }
 
-  .drop-down.shown{
-    display: block;}`;
+  .dropdown-item.shown{
+    background-color: green;
+    display: block;
+    }`;
 
     const styleSheet = document.createElement('style');
     styleSheet.textContent = styles;
