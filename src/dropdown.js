@@ -1,41 +1,71 @@
 // const testElem = document.createElement(div);
 
 /**
- * takes in a) reference to a button and b) array of items
+ * Class representing a dropdown menu.
  */
 class DropDown {
+  /**
+   * @type {Array<HTMLElement>}
+   * @private
+   */
   #dropDownArray;
 
+  /**
+   * @type {HTMLElement}
+   * @private
+   */
   #dropDownButtonRef;
 
+  /**
+   * Creates an instance of DropDown.
+   // eslint-disable-next-line max-len
+   * @param {Array<HTMLElement>} dropDownArray - The array of items to be converted into a dropdown menu.
+   * @param {HTMLElement} dropDownButtonRef - The reference to the button that toggles the dropdown.
+   */
   constructor(dropDownArray, dropDownButtonRef) {
-    this.addDropdownStyle();
-    // this.dropDownArray = dropDownArray;
+    this.#addDropdownStyle();
     this.#dropDownArray = dropDownArray;
-    // this.dropDownButtonRef = dropDownButtonRef;
     this.#dropDownButtonRef = dropDownButtonRef;
-    this.arrayToDropDown(this.#dropDownArray);
-    this.addDropdownClickEvent(dropDownButtonRef);
+    this.#arrayToDropDown(this.#dropDownArray);
+    this.#addDropdownClickEvent(dropDownButtonRef);
   }
 
+  /**
+   * Gets the dropdown array.
+   * @returns {Array<HTMLElement>} The array of dropdown items.
+   */
   get dropDownArray() {
     return this.#dropDownArray;
   }
 
+  /**
+   * Sets the dropdown array.
+   * @param {Array<HTMLElement>} array - The new array of dropdown items.
+   */
   set dropDownArray(array) {
     this.#dropDownArray = array;
   }
 
+  /**
+   * Gets the dropdown button reference.
+   * @returns {HTMLElement} The reference to the dropdown button.
+   */
   get dropDownButtonRef() {
     return this.#dropDownButtonRef;
   }
 
+  /**
+   * Sets the dropdown button reference.
+   * @param {HTMLElement} buttonRef - The new reference to the dropdown button.
+   */
   set dropDownButtonRef(buttonRef) {
     this.#dropDownButtonRef = buttonRef;
   }
 
-  //  adds CSS style for 'dropdown-item' class
-  addDropdownStyle() {
+  /**
+   * Adds CSS styles for the 'dropdown-item' class.
+   */
+  #addDropdownStyle() {
     const styles = `
   .dropdown-item{
     background-color: red;
@@ -54,26 +84,29 @@ class DropDown {
 
   /**
    * Converts an array of items into a dropdown menu.
-   * @param {Array} array - The array of items to be converted.
-   * @returns {HTMLDivElement} - The div containing all the items as a dropdown menu.
+   * @param {Array<HTMLElement>} array - The array of items to be converted.
    */
-  arrayToDropDown() {
+  #arrayToDropDown() {
     this.#dropDownArray.forEach((item) => {
-      // array.forEach((item) => {
       item.classList.add('dropdown-item');
     });
-    // return array;
   }
 
+  /**
+   * Toggles the visibility of the dropdown items.
+   */
   toggleDropDown() {
     this.#dropDownArray.forEach((elem) => {
-      // array.forEach((elem) => {
       elem.classList.toggle('shown');
     });
   }
 
-  //  take a button and adds "dropdown" event listener to the button, returns it
-  addDropdownClickEvent(button) {
+  /**
+   * Adds a "dropdown" event listener to the button.
+   * @param {HTMLElement} button - The button to which the event listener is added.
+   * @returns {HTMLElement} The button with the event listener.
+   */
+  #addDropdownClickEvent(button) {
     const boundToggleDropDown = this.toggleDropDown.bind(this);
     button.addEventListener('click', boundToggleDropDown);
     return button;
